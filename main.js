@@ -4,8 +4,8 @@
 const CONFIG = {
   accent: '#F0663A',            // opciones del diseño: #F0663A, #C9E14B, #7FA6FF, #F5B83D
   showSocialProof: true,        // ocultalo hasta tener testimonios/logos verificados
-  contactEmail: 'hola@saladello.com.ar',
-  whatsapp: '+54 9 11 0000-0000',
+  contactEmail: 'contacto.saladello@gmail.com',
+  whatsapp: '+54 9 11 3602-0311',
   responseTime: '24 hs',
   instagram: '@saladello',
   instagramUrl: '#',
@@ -13,12 +13,25 @@ const CONFIG = {
   linkedinUrl: '#',
 };
 
-// Envío del formulario: reemplazá por la llamada real al backend, p. ej.
-// return fetch('/api/contacto', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-//   .then(r => { if (!r.ok) throw new Error('fail'); });
-function submitLead(data) {
-  if (typeof window.saladelloSubmit === 'function') return window.saladelloSubmit(data);
-  return new Promise(res => setTimeout(res, 1400));
+// Envío del formulario: cada consulta llega por mail a CONFIG.contactEmail usando FormSubmit (formsubmit.co).
+// La primera vez, FormSubmit manda un mail de activación a esa casilla: hay que confirmarlo para que empiecen a llegar.
+async function submitLead(data) {
+  const res = await fetch('https://formsubmit.co/ajax/' + CONFIG.contactEmail, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      _subject: 'Nueva consulta desde la web — ' + data.nombre,
+      _template: 'table',
+      _replyto: data.email,
+      Nombre: data.nombre,
+      Email: data.email,
+      'Teléfono / WhatsApp': data.telefono || '(no lo dejó)',
+      'Tipo de trabajo': data.tipoTexto,
+      Mensaje: data.mensaje,
+    }),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok || String(body.success) !== 'true') throw new Error(body.message || 'No se pudo enviar');
 }
 
 (function () {
@@ -164,7 +177,7 @@ function submitLead(data) {
     fail.hidden = true;
     setSending(true);
     try {
-      await submitLead({ nombre: v.name.trim(), email: v.email.trim(), telefono: v.phone.trim(), tipo: v.type, mensaje: v.message.trim() });
+      await submitLead({ nombre: v.name.trim(), email: v.email.trim(), telefono: v.phone.trim(), tipo: v.type, tipoTexto: $('#f-type').selectedOptions[0].text, mensaje: v.message.trim() });
       setSending(false);
       $('#sent-to').textContent = v.email.trim();
       form.hidden = true;

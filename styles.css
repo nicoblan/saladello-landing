@@ -223,6 +223,7 @@ h2.h-xl{font-size:clamp(36px,5.6vw,64px);line-height:1;letter-spacing:-0.035em}
 .channel .b-icon{width:42px;height:42px;border-radius:12px;font-size:22px}
 .ch-text{min-width:0}
 .ch-label{display:block;font-size:13px;color:var(--muted)}
+.ch-value{display:block;font-size:16px;font-weight:600;overflow-wrap:anywhere}
 /* Marcadores: texto a reemplazar por datos reales (se ven resaltados a propósito) */
 .ph{font-family:var(--mono);font-size:15px;font-weight:500;background:var(--ph-bg);border-bottom:1.5px dashed var(--accent-text);padding:1px 4px;border-radius:4px;overflow-wrap:anywhere}
 .ph-ink{color:var(--ink);font-size:inherit}
