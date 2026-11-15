@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saladello — Pedís el trabajo, te llega listo</title>
+<meta name="description" content="Pedí trabajos de edición a un equipo de editores, seguí el avance en un solo lugar, corregí cuando quieras y pagá recién cuando estás conforme, con factura incluida.">
+<meta name="theme-color" content="#FAF8F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<script>
+  // Aplica el tema antes de pintar para evitar el parpadeo.
+  (function () {
+    try {
+      var t = localStorage.getItem('saladello-theme');
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&display=block">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Principal">
+    <a href="#inicio" class="brand" aria-label="Saladello, ir al inicio">
+      <span class="logo" aria-hidden="true">S</span>
+      <span class="brand-name">Saladello</span>
+    </a>
+    <div class="nav-links">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#preguntas">Preguntas</a>
+    </div>
+    <button type="button" class="icon-btn nav-theme" data-theme-toggle aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro"><span class="ms" aria-hidden="true" data-theme-icon>dark_mode</span></button>
+    <a href="#contacto" class="btn btn-sm btn-primary">Contactanos</a>
+    <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><span class="ms ms-24" aria-hidden="true">menu</span></button>
+  </nav>
+  <div id="menu-movil" class="mobile-menu" hidden>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#preguntas">Preguntas</a>
+    <button type="button" data-theme-toggle><span class="ms" aria-hidden="true" data-theme-icon>dark_mode</span><span data-theme-label>Cambiar a modo oscuro</span></button>
+  </div>
+</header>
+
+<main id="contenido">
+
+<section id="inicio" class="hero wrap" aria-labelledby="hero-title">
+  <div>
+    <p class="pill"><span class="dot" aria-hidden="true"></span>Edición y producción de contenido · Acceso por invitación</p>
+    <h1 id="hero-title">Pedís el trabajo. <span class="accent-text">Te llega listo.</span></h1>
+    <p class="lead">Seguís el avance en un solo lugar, corregís cuando quieras y pagás recién cuando estás conforme. Con factura incluida.</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn btn-lg btn-primary">Pedí acceso<span class="ms" aria-hidden="true">arrow_forward</span></a>
+      <a href="#como-funciona" class="btn btn-lg btn-ghost">Ver cómo funciona<span class="ms" aria-hidden="true">arrow_downward</span></a>
+    </div>
+  </div>
+
+  <div class="mock" role="img" aria-label="Ejemplo de la plataforma: una tarea en estado En revisión con su avance, la entrega en Google Drive y el aviso de cambio de estado.">
+    <div class="mock-dots" aria-hidden="true"></div>
+    <div class="card mock-card" aria-hidden="true">
+      <div class="mock-top">
+        <span class="logo logo-xs">S</span>
+        <span class="mock-title">Mis tareas</span>
+        <span class="bell"><span class="ms ms-fill">notifications</span><span class="badge">2</span></span>
+      </div>
+      <div class="mock-body">
+        <div class="task-head">
+          <div class="task-info">
+            <div class="task-name">Video de lanzamiento · 60 s</div>
+            <div class="task-meta"><span><span class="ms ms-16">event</span>Entrega: viernes 14</span><span><span class="ms ms-16">group</span>Equipo de video</span></div>
+          </div>
+          <span class="status st-amber"><span class="sdot"></span>En revisión</span>
+        </div>
+        <div class="progress"><div class="on"></div><div class="on"></div><div class="on"></div><div></div></div>
+        <div class="progress-labels"><span>Pedida</span><span>Asignada</span><span class="cur">En revisión</span><span>Lista</span></div>
+        <div class="drive">
+          <span class="drive-icon"><span class="ms">folder_open</span></span>
+          <div class="drive-text"><div class="t">Entrega en Google Drive</div><div class="s">Se desbloquea al pagar</div></div>
+          <span class="ms muted">lock</span>
+        </div>
+        <div class="mock-actions">
+          <span class="fake-btn">Pedir corrección</span>
+          <span class="fake-btn primary">Pagar con Mercado Pago</span>
+        </div>
+      </div>
+    </div>
+    <div class="card notif" aria-hidden="true">
+      <div class="notif-head"><span>Avisos</span><span class="mono">2 nuevos</span></div>
+      <div class="notif-item unread">
+        <span class="ms amber">rate_review</span>
+        <div><strong>Video de lanzamiento</strong> pasó a En revisión<div class="when">Hace 2 min · también por mail</div></div>
+      </div>
+      <div class="notif-item">
+        <span class="ms green">receipt_long</span>
+        <div>Factura emitida para <strong>Fotos de producto</strong><div class="when">Ayer</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantees" aria-label="Garantías">
+  <ul class="wrap">
+    <li><span class="g-icon ms" aria-hidden="true">shield_lock</span>Pago seguro con Mercado Pago</li>
+    <li><span class="g-icon ms" aria-hidden="true">receipt_long</span>Factura electrónica ARCA</li>
+    <li><span class="g-icon ms" aria-hidden="true">all_inclusive</span>Correcciones sin límite</li>
+    <li><span class="g-icon ms" aria-hidden="true">notifications_active</span>Seguimiento y avisos en tiempo real</li>
+  </ul>
+</section>
+
+<section id="como-funciona" class="section wrap" aria-labelledby="como-title">
+  <div data-reveal="0" class="sec-head">
+    <p class="eyebrow">CÓMO FUNCIONA</p>
+    <h2 id="como-title">Cuatro pasos. Sin perseguir a nadie por WhatsApp.</h2>
+  </div>
+  <ol class="steps">
+    <li data-reveal="0" class="tile">
+      <div class="step-top"><span class="step-icon ms" aria-hidden="true">edit_note</span><span class="step-num">01</span></div>
+      <h3>Pedís</h3>
+      <p>Contás qué necesitás y para cuándo. Nada más.</p>
+    </li>
+    <li data-reveal="80" class="tile">
+      <div class="step-top"><span class="step-icon ms" aria-hidden="true">assignment_ind</span><span class="step-num">02</span></div>
+      <h3>Lo asignamos</h3>
+      <p>Un organizador elige al editor o al equipo indicado para tu pedido.</p>
+    </li>
+    <li data-reveal="160" class="tile">
+      <div class="step-top"><span class="step-icon ms" aria-hidden="true">rate_review</span><span class="step-num">03</span></div>
+      <h3>Revisás y corregís</h3>
+      <p>Mirás la entrega y pedís cambios todas las veces que haga falta.</p>
+    </li>
+    <li data-reveal="240" class="tile">
+      <div class="step-top"><span class="step-icon ms" aria-hidden="true">download_done</span><span class="step-num">04</span></div>
+      <h3>Pagás y descargás</h3>
+      <p>Cuando estás conforme, pagás con Mercado Pago y se libera tu descarga.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="beneficios" class="band" aria-labelledby="ben-title">
+  <div class="section wrap">
+    <div data-reveal="0" class="ben-head">
+      <div class="sec-head">
+        <p class="eyebrow">BENEFICIOS</p>
+        <h2 id="ben-title">Vos te ocupás de tu negocio. Del resto, nosotros.</h2>
+      </div>
+      <a href="#contacto" class="underline-link">Consultá tarifas<span class="ms" aria-hidden="true">arrow_outward</span></a>
+    </div>
+    <div class="benefits">
+      <article data-reveal="0" class="tile">
+        <span class="b-icon ms" aria-hidden="true">inbox</span>
+        <h3>Todo en un solo lugar</h3>
+        <p>Pedidos, entregas, correcciones y facturas juntos. Se terminaron los chats y mails sueltos.</p>
+      </article>
+      <article data-reveal="60" class="tile">
+        <span class="b-icon ms" aria-hidden="true">thumb_up</span>
+        <h3>Pagás cuando estás conforme</h3>
+        <p>Primero ves el trabajo terminado. Recién ahí pagás, una sola vez por tarea.</p>
+      </article>
+      <article data-reveal="120" class="tile">
+        <span class="b-icon ms" aria-hidden="true">autorenew</span>
+        <h3>Correcciones incluidas</h3>
+        <p>Pedí los cambios que necesites, incluso después de pagar, sin costo extra.</p>
+      </article>
+      <article data-reveal="0" class="tile">
+        <span class="b-icon ms" aria-hidden="true">notifications</span>
+        <h3>Avisos automáticos</h3>
+        <p>Te avisamos por mail y en la plataforma cada vez que tu pedido cambia de estado.</p>
+      </article>
+      <article data-reveal="60" class="tile">
+        <span class="b-icon ms" aria-hidden="true">groups</span>
+        <h3>Un equipo para tu pedido</h3>
+        <p>Cada tarea va a la persona o al equipo que mejor la resuelve. Vos no coordinás nada.</p>
+      </article>
+      <article data-reveal="120" class="tile">
+        <span class="b-icon ms" aria-hidden="true">task_alt</span>
+        <h3>Facturación en regla</h3>
+        <p>Nosotros emitimos la factura electrónica de ARCA. Te llega sola, sin pedirla.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="producto" class="section wrap" aria-labelledby="prod-title">
+  <div data-reveal="0" class="sec-head wide">
+    <p class="eyebrow">LA PLATAFORMA</p>
+    <h2 id="prod-title">Todos tus pedidos, de un vistazo.</h2>
+    <p class="sub">Sabés en qué está cada trabajo sin preguntar. Así se ve tu panel.</p>
+  </div>
+  <div data-reveal="0" class="card panel" role="img" aria-label="Vista de ejemplo de la lista de tareas con estados Asignada, En revisión, Completada y En corrección.">
+    <div class="panel-bar" aria-hidden="true">
+      <div class="tabs"><span class="active">Todas <span class="muted">5</span></span><span>Activas</span><span>Completadas</span></div>
+      <span class="fake-btn primary new-task"><span class="ms ms-19">add</span>Nueva tarea</span>
+    </div>
+    <div aria-hidden="true">
+      <div class="row">
+        <div class="row-main"><div class="row-title">Video de lanzamiento · 60 s</div><div class="row-sub">Equipo de video · Entrega vie 14</div></div>
+        <span class="row-note">Entrega lista para revisar</span>
+        <span class="status st-amber fixed"><span class="sdot"></span>En revisión</span>
+      </div>
+      <div class="row">
+        <div class="row-main"><div class="row-title">Episodio 8 del podcast</div><div class="row-sub">Edición de audio · Entrega mié 12</div></div>
+        <span class="row-note">2.ª corrección en curso</span>
+        <span class="status st-violet fixed"><span class="sdot"></span>En corrección</span>
+      </div>
+      <div class="row">
+        <div class="row-main"><div class="row-title">Piezas para redes · mayo</div><div class="row-sub">Diseño gráfico · Entrega jue 20</div></div>
+        <span class="row-note">Editor asignado</span>
+        <span class="status st-blue fixed"><span class="sdot"></span>Asignada</span>
+      </div>
+      <div class="row">
+        <div class="row-main"><div class="row-title">Fotos de producto · 24 imágenes</div><div class="row-sub">Edición de fotos · Entregada lun 10</div></div>
+        <span class="row-note"><span class="ms ms-16">receipt_long</span>Factura emitida</span>
+        <span class="status st-green fixed"><span class="sdot"></span>Completada</span>
+      </div>
+      <div class="row">
+        <div class="row-main"><div class="row-title">Presentación institucional</div><div class="row-sub">Diseño gráfico · Entrega lun 24</div></div>
+        <span class="row-note">Editor asignado</span>
+        <span class="status st-blue fixed"><span class="sdot"></span>Asignada</span>
+      </div>
+    </div>
+  </div>
+  <dl class="legend">
+    <div><dt><span class="ldot" style="background:var(--blue-fg)" aria-hidden="true"></span>Asignada</dt><dd>Tu pedido ya tiene editor y está en marcha.</dd></div>
+    <div><dt><span class="ldot" style="background:var(--amber-fg)" aria-hidden="true"></span>En revisión</dt><dd>La entrega está lista para que la mires.</dd></div>
+    <div><dt><span class="ldot" style="background:var(--violet-fg)" aria-hidden="true"></span>En corrección</dt><dd>Estamos aplicando los cambios que pediste.</dd></div>
+    <div><dt><span class="ldot" style="background:var(--green-fg)" aria-hidden="true"></span>Completada</dt><dd>Pagada, descargable y con su factura.</dd></div>
+  </dl>
+
+  <aside class="social-placeholder" id="social-proof" aria-label="Espacio reservado para prueba social">
+    <span class="ph-tag">PLACEHOLDER</span>
+    <p>Prueba social: testimonios o logos de clientes reales, con su permiso. No publicar hasta tener datos verificados.</p>
+  </aside>
+</section>
+
+<section id="preguntas" class="band" aria-labelledby="faq-title">
+  <div class="section wrap faq-grid">
+    <div data-reveal="0">
+      <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2 id="faq-title">Lo que siempre nos preguntan.</h2>
+      <p class="sub">¿Te quedó alguna duda? <a href="#contacto">Escribinos</a>.</p>
+    </div>
+    <div class="faq" id="faq">
+      <div class="faq-item">
+        <h3><button type="button" id="faq-b0" aria-expanded="true" aria-controls="faq-p0">¿Cómo se pide un trabajo?<span class="faq-icon ms" aria-hidden="true">remove</span></button></h3>
+        <div id="faq-p0" role="region" aria-labelledby="faq-b0" class="faq-panel">Entrás a la plataforma, creás una tarea y contás qué necesitás, con el material y la fecha de entrega. Desde ahí, nosotros nos encargamos de asignarla.</div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" id="faq-b1" aria-expanded="false" aria-controls="faq-p1">¿Cuántas correcciones puedo pedir?<span class="faq-icon ms" aria-hidden="true">add</span></button></h3>
+        <div id="faq-p1" role="region" aria-labelledby="faq-b1" class="faq-panel" hidden>Todas las que necesites. Pedís los cambios desde la misma tarea y te avisamos cuando estén listos para revisar.</div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" id="faq-b2" aria-expanded="false" aria-controls="faq-p2">¿Cuándo pago?<span class="faq-icon ms" aria-hidden="true">add</span></button></h3>
+        <div id="faq-p2" role="region" aria-labelledby="faq-b2" class="faq-panel" hidden>Recién cuando estás conforme con el trabajo. Pagás por Mercado Pago una sola vez por tarea, aunque después pidas más correcciones.</div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" id="faq-b3" aria-expanded="false" aria-controls="faq-p3">¿Cómo recibo el archivo?<span class="faq-icon ms" aria-hidden="true">add</span></button></h3>
+        <div id="faq-p3" role="region" aria-labelledby="faq-b3" class="faq-panel" hidden>El editor sube el resultado a una carpeta de Google Drive. Cuando pagás, se te desbloquea el link de descarga dentro de la tarea.</div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" id="faq-b4" aria-expanded="false" aria-controls="faq-p4">¿Me dan factura?<span class="faq-icon ms" aria-hidden="true">add</span></button></h3>
+        <div id="faq-p4" role="region" aria-labelledby="faq-b4" class="faq-panel" hidden>Sí. Emitimos la factura electrónica de ARCA (ex AFIP) por cada tarea pagada y te avisamos cuando está disponible.</div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" id="faq-b5" aria-expanded="false" aria-controls="faq-p5">¿Cómo me doy de alta?<span class="faq-icon ms" aria-hidden="true">add</span></button></h3>
+        <div id="faq-p5" role="region" aria-labelledby="faq-b5" class="faq-panel" hidden>El acceso es por invitación, no hay registro público. Escribinos desde el formulario de abajo y te creamos la cuenta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="section wrap" aria-labelledby="contact-title">
+  <div class="contact-grid">
+    <div data-reveal="0">
+      <p class="eyebrow">EMPECEMOS</p>
+      <h2 id="contact-title" class="h-xl">Tu próximo trabajo, sin vueltas.</h2>
+      <p class="sub narrow">Contanos qué necesitás y te damos de alta la cuenta. El acceso es por invitación, así que el primer paso es este.</p>
+      <ul class="channels">
+        <li><a data-href="mail" href="#" class="channel"><span class="b-icon ms" aria-hidden="true">mail</span><span class="ch-text"><span class="ch-label">Mail</span><span class="ph" data-ph="contactEmail" title="Marcador: reemplazar por el mail real"></span></span></a></li>
+        <li><a data-href="whatsapp" href="#" target="_blank" rel="noopener" class="channel"><span class="b-icon ms" aria-hidden="true">chat</span><span class="ch-text"><span class="ch-label">WhatsApp</span><span class="ph" data-ph="whatsapp" title="Marcador: reemplazar por el WhatsApp real"></span></span></a></li>
+      </ul>
+      <p class="response"><span class="ms ms-19" aria-hidden="true">schedule</span>Respondemos en menos de <span class="ph ph-ink" data-ph="responseTime" title="Marcador: plazo de respuesta"></span></p>
+    </div>
+
+    <div data-reveal="80" class="card form-card">
+      <form id="contact-form" novalidate aria-labelledby="contact-title">
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Nombre</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name" placeholder="Cómo te llamás">
+            <span id="e-name" class="err" hidden></span>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="e-email" placeholder="nombre@empresa.com">
+            <span id="e-email" class="err" hidden></span>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-phone">Teléfono o WhatsApp <span class="opt">(opcional)</span></label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="e-phone" placeholder="+54 9 11 …">
+            <span id="e-phone" class="err" hidden></span>
+          </div>
+          <div class="field">
+            <label for="f-type">¿Qué tipo de trabajos necesitás?</label>
+            <div class="select-wrap">
+              <select id="f-type" name="type" required aria-describedby="e-type">
+                <option value="">Elegí una opción</option>
+                <option value="video">Edición de video</option>
+                <option value="foto">Edición de fotos</option>
+                <option value="diseno">Diseño gráfico y piezas para redes</option>
+                <option value="audio">Edición de audio o podcast</option>
+                <option value="textos">Redacción y corrección de textos</option>
+                <option value="varios">Varios / todavía no sé</option>
+              </select>
+              <span class="ms select-caret" aria-hidden="true">expand_more</span>
+            </div>
+            <span id="e-type" class="err" hidden></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">Mensaje</label>
+          <textarea id="f-msg" name="message" rows="5" required aria-describedby="e-message" placeholder="Contanos qué necesitás, con qué frecuencia y para cuándo."></textarea>
+          <span id="e-message" class="err" hidden></span>
+        </div>
+        <p role="alert" class="form-fail" id="form-fail" hidden>No pudimos enviar tu mensaje. Probá de nuevo en un rato o escribinos a <span data-ph-text="contactEmail"></span>.</p>
+        <button type="submit" class="btn-submit" id="submit-btn"><span id="submit-label">Quiero empezar</span><span class="ms" aria-hidden="true" id="submit-icon">arrow_forward</span></button>
+        <p class="privacy">Usamos tus datos solo para responderte y darte de alta.</p>
+      </form>
+      <div class="success" id="form-success" hidden>
+        <span class="ok-icon ms" aria-hidden="true">check</span>
+        <h3 id="ok-title" tabindex="-1">Gracias, te respondemos en menos de <span class="ph ph-lg" data-ph="responseTime"></span>.</h3>
+        <p>Te vamos a escribir a <strong id="sent-to"></strong> para darte de alta y coordinar tu primer pedido.</p>
+        <button type="button" class="btn-outline" id="form-reset">Enviar otra consulta</button>
+      </div>
+      <div class="sr-only" aria-live="polite" id="form-live"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="#inicio" class="brand" aria-label="Saladello, ir al inicio"><span class="logo logo-sm" aria-hidden="true">S</span><span class="brand-name">Saladello</span></a>
+      <p>Pedís, seguís, corregís y pagás cuando estás conforme.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Pie de página">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="socials">
+      <a data-href="instagram" href="#" class="social" aria-label="Instagram de Saladello" title="Marcador: link de Instagram"><span data-ph-text="instagram"></span></a>
+      <a data-href="linkedin" href="#" class="social" aria-label="LinkedIn de Saladello" title="Marcador: link de LinkedIn"><span data-ph-text="linkedin"></span></a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span id="year"></span> Saladello</span>
+    <span>Hecho en Argentina</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
