@@ -8,9 +8,9 @@ const CONFIG = {
   whatsapp: '+54 9 11 3602-0311',
   responseTime: '24 hs',
   instagram: '@saladello',
-  instagramUrl: '#',
-  linkedin: 'linkedin/saladello',
-  linkedinUrl: '#',
+  instagramUrl: 'https://www.instagram.com/saladello/',
+  linkedin: 'LinkedIn',
+  linkedinUrl: 'https://www.linkedin.com/company/saladello/',
 };
 
 // Envío del formulario: cada consulta llega por mail a CONFIG.contactEmail usando FormSubmit (formsubmit.co).
