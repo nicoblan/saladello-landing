@@ -2,7 +2,6 @@
  * Editá CONFIG con los datos reales antes de publicar.
  */
 const CONFIG = {
-  accent: '#F0663A',            // opciones del diseño: #F0663A, #C9E14B, #7FA6FF, #F5B83D
   showSocialProof: true,        // ocultalo hasta tener testimonios/logos verificados
   contactEmail: 'contacto.saladello@gmail.com',
   whatsapp: '+54 9 11 3602-0311',
@@ -40,7 +39,6 @@ async function submitLead(data) {
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
   /* ---------- Config / placeholders ---------- */
-  root.style.setProperty('--accent', CONFIG.accent);
   $$('[data-ph]').forEach(el => { el.textContent = CONFIG[el.dataset.ph]; el.dataset.placeholder = el.dataset.ph; });
   $$('[data-ph-text]').forEach(el => { el.textContent = CONFIG[el.dataset.phText]; });
   const hrefs = {

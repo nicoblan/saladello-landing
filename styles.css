@@ -1,9 +1,11 @@
 /* ===== Tokens ===== */
 :root{
-  --accent:#F0663A;--on-accent:#1A1714;
-  --bg:#FAF8F5;--bg-2:#F2EEE8;--surface:#FFFFFF;--field:#FFFFFF;
-  --ink:#1A1714;--muted:#5C554E;--line:#E4DED6;--line-2:#D3CCC2;
-  --shadow:0 1px 2px rgba(26,23,20,.06),0 12px 32px -12px rgba(26,23,20,.18);
+  /* Verde del logo: --brand es el verde de la hoja, --brand-dark el de "salad" */
+  --brand:#1BA34B;--brand-dark:#06301A;
+  --accent:#15843D;--on-accent:#FFFFFF;
+  --bg:#F7F8F5;--bg-2:#EEF2EC;--surface:#FFFFFF;--field:#FFFFFF;
+  --ink:#0E2618;--muted:#4E5D54;--line:#DEE5DB;--line-2:#C9D3C6;
+  --shadow:0 1px 2px rgba(14,38,24,.06),0 12px 32px -12px rgba(14,38,24,.2);
   --danger:oklch(0.5 0.19 27);--ok:oklch(0.5 0.13 150);
   --blue-fg:oklch(0.47 0.14 255);--blue-bg:oklch(0.95 0.03 255);
   --amber-fg:oklch(0.48 0.11 65);--amber-bg:oklch(0.95 0.05 85);
@@ -19,8 +21,10 @@
   color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --bg:#141210;--bg-2:#1B1815;--surface:#211E1A;--field:#1A1714;
-  --ink:#F3EFEA;--muted:#ADA59B;--line:#322D28;--line-2:#423C35;
+  --brand:#27B35A;--brand-dark:#EAF3EC;
+  --accent:#2FBF62;--on-accent:#04220F;
+  --bg:#0F1411;--bg-2:#141B16;--surface:#19211B;--field:#121914;
+  --ink:#EEF3EE;--muted:#A3B1A7;--line:#26302A;--line-2:#35413A;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.7);
   --danger:oklch(0.76 0.14 27);--ok:oklch(0.8 0.12 150);
   --blue-fg:oklch(0.82 0.09 255);--blue-bg:oklch(0.32 0.06 255);
@@ -74,10 +78,12 @@ a:hover{color:var(--ink)}
 .nav{max-width:1200px;margin:0 auto;padding:0 var(--gutter);height:68px;display:flex;align-items:center;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
 .brand:hover{color:var(--ink)}
-.logo{width:32px;height:32px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:19px;line-height:1}
-.logo-sm{width:30px;height:30px;border-radius:9px;font-size:18px}
-.logo-xs{width:24px;height:24px;border-radius:7px;font-size:14px}
-.brand-name{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-0.02em}
+.brand{gap:8px}
+.leaf{width:27px;height:34px;flex:none;display:block}
+.leaf-xs{width:19px;height:24px}
+.wordmark{font-family:'Inter',var(--display);font-weight:900;font-size:25px;line-height:1;letter-spacing:-0.045em;padding-bottom:2px}
+.wm-a{color:var(--brand-dark)}
+.wm-b{color:var(--brand)}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px;padding:10px 12px;border-radius:10px;transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -268,7 +274,7 @@ form{display:flex;flex-direction:column;gap:20px}
 .site-footer{border-top:1px solid var(--line);background:var(--bg-2)}
 .footer-top{padding-top:44px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-start;justify-content:space-between}
 .footer-brand{display:flex;flex-direction:column;gap:12px;max-width:320px}
-.footer-brand .brand-name{font-size:20px}
+.footer-brand .wordmark{font-size:24px}
 .footer-brand p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
 .footer-nav{display:flex;flex-wrap:wrap;gap:6px 22px}
 .footer-nav a{color:var(--ink);text-decoration:none;font-size:15px;padding:6px 0}
