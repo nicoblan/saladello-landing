@@ -1,11 +1,10 @@
 /* ===== Tokens ===== */
 :root{
-  /* Verde del logo: --brand es el verde de la hoja, --brand-dark el de "salad" */
-  --brand:#1BA34B;--brand-dark:#06301A;
-  --accent:#15843D;--on-accent:#FFFFFF;
-  --bg:#F7F8F5;--bg-2:#EEF2EC;--surface:#FFFFFF;--field:#FFFFFF;
-  --ink:#0E2618;--muted:#4E5D54;--line:#DEE5DB;--line-2:#C9D3C6;
-  --shadow:0 1px 2px rgba(14,38,24,.06),0 12px 32px -12px rgba(14,38,24,.2);
+  /* Colores del logo: azul del ícono y azul marino del texto */
+  --accent:#2563EB;--on-accent:#FFFFFF;
+  --bg:#F7F8FB;--bg-2:#EEF1F7;--surface:#FFFFFF;--field:#FFFFFF;
+  --ink:#111A2E;--muted:#4D5870;--line:#DFE4EE;--line-2:#CBD3E1;
+  --shadow:0 1px 2px rgba(17,26,46,.06),0 12px 32px -12px rgba(17,26,46,.2);
   --danger:oklch(0.5 0.19 27);--ok:oklch(0.5 0.13 150);
   --blue-fg:oklch(0.47 0.14 255);--blue-bg:oklch(0.95 0.03 255);
   --amber-fg:oklch(0.48 0.11 65);--amber-bg:oklch(0.95 0.05 85);
@@ -21,10 +20,9 @@
   color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --brand:#27B35A;--brand-dark:#EAF3EC;
-  --accent:#2FBF62;--on-accent:#04220F;
-  --bg:#0F1411;--bg-2:#141B16;--surface:#19211B;--field:#121914;
-  --ink:#EEF3EE;--muted:#A3B1A7;--line:#26302A;--line-2:#35413A;
+  --accent:#3474EA;--on-accent:#FFFFFF;
+  --bg:#111A2E;--bg-2:#141E34;--surface:#19243D;--field:#131C31;
+  --ink:#F1F4FA;--muted:#A3AEC5;--line:#27324D;--line-2:#36435F;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.7);
   --danger:oklch(0.76 0.14 27);--ok:oklch(0.8 0.12 150);
   --blue-fg:oklch(0.82 0.09 255);--blue-bg:oklch(0.32 0.06 255);
@@ -78,12 +76,10 @@ a:hover{color:var(--ink)}
 .nav{max-width:1200px;margin:0 auto;padding:0 var(--gutter);height:68px;display:flex;align-items:center;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
 .brand:hover{color:var(--ink)}
-.brand{gap:8px}
-.leaf{width:27px;height:34px;flex:none;display:block}
-.leaf-xs{width:19px;height:24px}
-.wordmark{font-family:'Inter',var(--display);font-weight:900;font-size:25px;line-height:1;letter-spacing:-0.045em;padding-bottom:2px}
-.wm-a{color:var(--brand-dark)}
-.wm-b{color:var(--brand)}
+.brand{gap:10px}
+.mark{width:34px;height:34px;flex:none;display:block;filter:drop-shadow(0 4px 8px rgba(30,79,207,.25))}
+.mark-xs{width:24px;height:24px;filter:none}
+.wordmark{font-family:'Inter',var(--display);font-weight:800;font-size:23px;line-height:1;letter-spacing:-0.03em;color:var(--ink)}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px;padding:10px 12px;border-radius:10px;transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -274,7 +270,7 @@ form{display:flex;flex-direction:column;gap:20px}
 .site-footer{border-top:1px solid var(--line);background:var(--bg-2)}
 .footer-top{padding-top:44px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-start;justify-content:space-between}
 .footer-brand{display:flex;flex-direction:column;gap:12px;max-width:320px}
-.footer-brand .wordmark{font-size:24px}
+.footer-brand .wordmark{font-size:22px}
 .footer-brand p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
 .footer-nav{display:flex;flex-wrap:wrap;gap:6px 22px}
 .footer-nav a{color:var(--ink);text-decoration:none;font-size:15px;padding:6px 0}
